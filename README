@@ -1,17 +1,18 @@
 Please read the dope MIT license at the bottom of the page.
 
-The FFT algorithm included was written by Ooura ( http://www.kurims.kyoto-u.ac.jp/~ooura/fft.html ),
-so all thanks and questions for the core of this code go in that direction.
+* The FFT algorithm included was written by Ooura ( http://www.kurims.kyoto-u.ac.jp/~ooura/fft.html ),
+so all thanks and questions for the core of this project go in that direction.
 
-This code is in a state of flux, and I'm not quite satisfied with its calling conventions,
-but for now, it fits the bill.
+* This code is in a state of flux. I'm not quite satisfied with its calling conventions,
+so function names and data structures will likely be overhauled in the coming months.
+But, it does work.
 
-If you'd like to see it in action, check out the YouTube video I made
+* If you'd like to see it in action, check out the YouTube video I made
 for my iPhone app oScope, which uses the FFT pretty directly:
 http://www.youtube.com/watch?v=StYAyhBxDbI
 
-If you use this code in a paid app, please consider donating. Do send me an email
-if you choose to use it, regardless. 
+* If you use this code in a paid app, please consider donating a little for my time. 
+In any case, enjoy!
 
  Copyright (c) 2009 Alex Wiltschko
 
