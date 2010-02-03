@@ -14,6 +14,34 @@ http://www.youtube.com/watch?v=StYAyhBxDbI
 * If you use this code in a paid app, please consider donating a little for my time. 
 In any case, enjoy!
 
+
+HOW TO USE:
+
+// 1. First initialize the class
+OouraFFT *myFFT = [OouraFFT initForSignalsOfLength:1024 numberOfWindows:10];
+
+// 2. Then fill up an array with data with your own function
+fillUpInputSignalWithData(myFFT.inputData);
+
+// 3. And then compute the FFT
+[myFFT calculateWelchPeriodogramWithNewSignalSegment];
+
+// 4. ... then finally, plot the signal with your own function
+plotTheSignal(myFFT.spectrumData)
+
+// Repeat steps 2-4 for any new data you acquire
+
+
+WHAT THE HECK KIND OF DATA IS IN "spectrumData"?:
+
+OouraFFT.spectrumData contains the frequencies in the signal you plopped into OouraFFT.inputData, then computed by calling calculateWelchPeriodogramWithNewSignalSegment.
+Now, which frequencies correspond to which elements?
+Say your signal has a sampling rate of 48,000 Hz, and you are computing the FFT on chunks of your signal 1024 samples long. Then, OouraFFT.spectrumData has 1024/2 = 512 frequencies in it, evenly spaced between 0 and 48,000/2 = 24,000. 
+Why is the highest frequency computed equal to half the sampling rate? This frequency is called the "Nyquist Rate", and frankly, I don't think I can explain it very well. Check out the Wikipedia article for some more info.
+
+Hope that helps! 
+
+
  Copyright (c) 2009 Alex Wiltschko
 
  Permission is hereby granted, free of charge, to any person
