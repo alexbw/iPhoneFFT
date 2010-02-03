@@ -1,69 +1,29 @@
-Please read the dope MIT license at the bottom of the page.
-
-* The FFT algorithm included was written by Ooura ( http://www.kurims.kyoto-u.ac.jp/~ooura/fft.html ),
-so all thanks and questions for the core of this project go in that direction.
-
-* This code is in a state of flux. I'm not quite satisfied with its calling conventions,
-so function names and data structures will likely be overhauled in the coming months.
-But, it does work.
-
-* If you'd like to see it in action, check out the YouTube video I made
-for my iPhone app oScope, which uses the FFT pretty directly:
-http://www.youtube.com/watch?v=StYAyhBxDbI
-
-* If you use this code in a paid app, please consider donating a little for my time. 
-In any case, enjoy!
-
-
 HOW TO USE:
-
+ 
 // 1. First initialize the class
 OouraFFT *myFFT = [OouraFFT initForSignalsOfLength:1024 numberOfWindows:10];
-
+ 
 // 2. Then fill up an array with data with your own function
-fillUpInputSignalWithData(myFFT.inputData);
-
+fillUpInputSignalWithMyData(myFFT.inputData);
+ 
 // 3. And then compute the FFT
 [myFFT calculateWelchPeriodogramWithNewSignalSegment];
-
+ 
 // 4. ... then finally, plot the signal with your own function
-plotTheSignal(myFFT.spectrumData)
-
+doSomethingWithTheFrequencyData(myFFT.spectrumData)
+ 
 // Repeat steps 2-4 for any new data you acquire
-
-
+ 
+ 
 WHAT THE HECK KIND OF DATA IS IN "spectrumData"?:
-
+ 
 OouraFFT.spectrumData contains the frequencies in the signal you plopped into OouraFFT.inputData, then computed by calling calculateWelchPeriodogramWithNewSignalSegment.
-Now, which frequencies correspond to which elements?
+Now, which frequencies correspond to which entries in the array?
 Say your signal has a sampling rate of 48,000 Hz, and you are computing the FFT on chunks of your signal 1024 samples long. Then, OouraFFT.spectrumData has 1024/2 = 512 frequencies in it, evenly spaced between 0 and 48,000/2 = 24,000. 
+
+So, for 0 < i < OouraFFT.numFrequencies, 
+spectrumData[i] holds data for (i*samplingRate)/(2*numFrequencies)
+
 Why is the highest frequency computed equal to half the sampling rate? This frequency is called the "Nyquist Rate", and frankly, I don't think I can explain it very well. Check out the Wikipedia article for some more info.
-
+ 
 Hope that helps! 
-
-
- Copyright (c) 2009 Alex Wiltschko
-
- Permission is hereby granted, free of charge, to any person
- obtaining a copy of this software and associated documentation
- files (the "Software"), to deal in the Software without
- restriction, including without limitation the rights to use,
- copy, modify, merge, publish, distribute, sublicense, and/or sell
- copies of the Software, and to permit persons to whom the
- Software is furnished to do so, subject to the following
- conditions:
-
- The above copyright notice and this permission notice shall be
- included in all copies or substantial portions of the Software.
-
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
- OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
- HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
- WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
- OTHER DEALINGS IN THE SOFTWARE.
-
-
-
