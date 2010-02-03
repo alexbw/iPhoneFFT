@@ -1,4 +1,9 @@
-Please read the dope MIT license at the bottom of the page.
+* You should check out my iPhone app, oScope, that uses this FFT library
+http://itunes.com/apps/oscope
+and the YouTube video I made of the app as well:
+http://www.youtube.com/watch?v=StYAyhBxDbI
+
+* Please read the dope MIT license at the bottom of the page.
  
 * The FFT algorithm included was written by Ooura ( http://www.kurims.kyoto-u.ac.jp/~ooura/fft.html ),
 so all thanks and questions for the core of this project go in that direction.
@@ -6,10 +11,6 @@ so all thanks and questions for the core of this project go in that direction.
 * This code is in a state of flux. I'm not quite satisfied with its calling conventions,
 so function names and data structures will likely be overhauled in the coming months.
 But, it does work.
- 
-* If you'd like to see it in action, check out the YouTube video I made
-for my iPhone app oScope, which uses the FFT pretty directly:
-http://www.youtube.com/watch?v=StYAyhBxDbI
  
 * If you use this code in a paid app, please consider donating a little for my time. 
 In any case, enjoy!
