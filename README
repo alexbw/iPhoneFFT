@@ -21,7 +21,7 @@ In any case, enjoy!
 HOW TO USE:
  
 // 1. First initialize the class
-OouraFFT *myFFT = [OouraFFT initForSignalsOfLength:1024 numberOfWindows:10];
+OouraFFT *myFFT = [[OouraFFT alloc] initForSignalsOfLength:numFrequencies*2 andNumWindows:kNumFFTWindows];
  
 // 2. Then fill up an array with data with your own function
 fillUpInputSignalWithMyData(myFFT.inputData);
